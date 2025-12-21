@@ -35,3 +35,32 @@ This project implements and evaluates a dynamic controller load-balancing framew
 
 ## Quickstart (run the experiments locally)
 > **Prereqs:** Python 3.8+, Ryu, Mininet, Open vSwitch, psutil, pandas, matplotlib, Flask, ovs-libs. Run on a Linux VM with mininet installed.
+> # in terminal 1: start controller C1 (NoLB)
+ryu-manager controllers/controller_noLB.py
+
+# in terminal 2: start controller C2 (NoLB) on different port
+ryu-manager --ofp-tcp-listen-port 6634 controllers/controller_noLB.py
+
+Launch Mininet topology (in another terminal):
+
+sudo python3 topologies/topo_2ctrl.py
+# this script will instantiate topology and assign switches to controllers
+generate animation:
+
+python3 analysis/generate_animation.py --logs results/migration_events.log --out results/animation.gif
+Trigger traffic and collect logs:
+
+# inside Mininet CLI:
+pingall
+# repeat pingall as described in the report
+
+Run analysis:
+
+python3 analysis/analyze_kpi.py --noLB logs/noLB_c1.csv logs/noLB_c2.csv --lb logs/lb_c1.csv logs/lb_c2.csv
+# generates plots in results/
+
+(For 3-controller scenario, use topo_3ctrl.py and analyze_kpi_3ctrl.py accordingly.)
+
+
+
+
