@@ -18,10 +18,10 @@ This project implements and evaluates a dynamic controller load-balancing framew
 ---
 
 ## How it works (quick technical overview)
-1. **Topology setup:** Mininet runs OVS switches and attaches them to remote Ryu controllers (OpenFlow 1.3). Two scenarios are used: 5 switches (2 controllers) and 9 switches (3 controllers). :contentReference[oaicite:10]{index=10}  
-2. **Monitoring & scoring:** Each controller periodically samples its own CPU %, memory %, and packet-in delta; these are combined with tunable weights into a normalized composite score. :contentReference[oaicite:11]{index=11}  
-3. **Decision & migration:** When the score difference exceeds thresholds, the LB controller selects switch(es) to migrate (lightest or heaviest policy), installs fail-safe flows, and reassigns the switch with `ovs-vsctl set-controller`. Cooldown timers prevent oscillations. :contentReference[oaicite:12]{index=12}  
-4. **Evaluation:** CSV logs are analyzed to produce time-series charts and fairness metrics (STD, DIFF, CV) and percentage improvements comparing NoLB vs LB. Typical outputs: KPI tables and annotated bar charts. :contentReference[oaicite:13]{index=13}
+1. **Topology setup:** Mininet runs OVS switches and attaches them to remote Ryu controllers (OpenFlow 1.3). Two scenarios are used: 5 switches (2 controllers) and 9 switches (3 controllers).
+2. **Monitoring & scoring:** Each controller periodically samples its own CPU %, memory %, and packet-in delta; these are combined with tunable weights into a normalized composite score. 
+3. **Decision & migration:** When the score difference exceeds thresholds, the LB controller selects switch(es) to migrate (lightest or heaviest policy), installs fail-safe flows, and reassigns the switch with `ovs-vsctl set-controller`. Cooldown timers prevent oscillations. 
+4. **Evaluation:** CSV logs are analyzed to produce time-series charts and fairness metrics (STD, DIFF, CV) and percentage improvements comparing NoLB vs LB. Typical outputs: KPI tables and annotated bar charts.
 
 ---
 
