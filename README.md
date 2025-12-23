@@ -36,53 +36,54 @@ This project implements and evaluates a dynamic controller load-balancing framew
 ## Quickstart (run the experiments locally)
 **Prereqs:** Python 3.8+, Ryu, Mininet, Open vSwitch, psutil, pandas, matplotlib, Flask, ovs-libs. Run on a Linux VM with mininet installed.
 
-# in terminal 1: start controller C1 (NoLB)
+in terminal 1: start controller C1 (NoLB)
 sudo ryu-manager --ofp-tcp-listen-port=6633 controller1-no.py
 
-# in terminal 2: start controller C2 (NoLB) on different port
+in terminal 2: start controller C2 (NoLB) on different port
 sudo ryu-manager --ofp-tcp-listen-port=6634 controller2-no.py
 
-# Launch Mininet topology (in third terminal):
+Launch Mininet topology (in third terminal):
 
 sudo python topology.py
 
-# inside Mininet CLI:
+inside Mininet CLI:
 pingall    (for many times)
 
  exit            / # inside Mininet CLI
 sudo mn -c      / to stop the controllers and topology
 
 
-## Repeat for the LB 
+Repeat for the LB 
 
-# in terminal 1: start controller C1 (LB)
+in terminal 1: start controller C1 (LB)
 sudo ryu-manager --ofp-tcp-listen-port=6633 controller1.py
 
-# in terminal 2: start controller C2 (LB) on different port
+in terminal 2: start controller C2 (LB) on different port
 sudo ryu-manager --ofp-tcp-listen-port=6634 controller2.py
 
-# Launch Mininet topology (in third terminal):
+Launch Mininet topology (in third terminal):
 
 sudo python topology.py
 
-# inside Mininet CLI:
+inside Mininet CLI:
 pingall           // for many times
 
  exit            //  inside Mininet CLI
 sudo mn -c       // to stop the controllers and topology
 
 
-# Run analysis :
+Run analysis :
 python3 analyze-kpi.py /tmp/kpi_log_c1_noLB.csv /tmp/kpi_log_c2_noLB.csv /tmp/kpi_log_c1_LB.csv /tmp/kpi_log_c2_LB.csv comparison_2ctrl    / generates plots in results
 
-# this script will instantiate topology and assign switches to controllers
-# generate animation:
+this script will instantiate topology and assign switches to controllers
+generate animation:
+
 python3 generate_animation.py
 
 (For 3-controller scenario, use topo_3ctrl.py and analyze_kpi_3ctrl.py accordingly.)
 
 
-# to repeat simulation, it's important to remove all saved logs and events
+to repeat simulation, it's important to remove all saved logs and events
 
 sudo rm /tmp/kpi_log_c2_noLB.csv /tmp/kpi_log_c1_noLB.csv /tmp/kpi_log_c2_LB.csv /tmp/kpi_log_c1_LB.csv /tmp/kpi_log_c3_LB.csv /tmp/kpi_log_c3_noLB.csv
 
