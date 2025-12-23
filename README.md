@@ -29,7 +29,7 @@ This project implements and evaluates a dynamic controller load-balancing framew
 ---
 
 ## Key results (summary)
-- Enabling load balancing substantially improved fairness across controllers (large STD/CV reductions across tested weight groups). See `results/` for time-series and bar charts. Example improvements reported: CPU STD improvements up to ~99% (weight dependent) in some configurations. 
+- Enabling load balancing substantially improved fairness across controllers (large STD/CV reductions across tested weight groups). 
 
 ---
 
