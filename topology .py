@@ -82,4 +82,5 @@ if __name__ == '__main__':
     try:
         CLI(net)
     finally:
+
         net.stop()
