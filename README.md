@@ -96,6 +96,11 @@ sudo rm /tmp/kpi_log_c2_noLB.csv /tmp/kpi_log_c1_noLB.csv /tmp/kpi_log_c2_LB.csv
 
 sudo truncate -s 0 /tmp/migration_log.txt
 
+<img width="667" height="391" alt="Topology 2" src="https://github.com/user-attachments/assets/335d122d-ff3d-4541-8002-a5d79fd93b38" />
+<img width="673" height="301" alt="Topology 1" src="https://github.com/user-attachments/assets/44633229-6c83-4ef3-945a-9fd7ce277993" />
+
+
+
 
 
 
